@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <fcntl.h>
+
+sem_t *sem;
+
+int main(void) {
+	sem = sem_open("pSem", 0);
+	printf("PID = %d: Thread-Waker activated.\n", getpid());
+
+	int numWakeup = -1;
+	int i;
+	do {
+		printf("Enter number of threads to wake up (0 to exit): ");
+		scanf(" %d", &numWakeup);
+
+		for (i = 0; i < numWakeup; i++)
+			sem_post(sem);
+	} while (numWakeup != 0);
+
+	int sClose = sem_close(sem);
+	if (sClose == -1)
+		perror("ERROR: sem_close\n");
+	int sDestroy = sem_destroy(sem);
+	if (sDestroy == -1)
+		perror("ERROR: sem_destroy\n");
+
+	printf("Exiting...");
+
+	return EXIT_SUCCESS;
+}

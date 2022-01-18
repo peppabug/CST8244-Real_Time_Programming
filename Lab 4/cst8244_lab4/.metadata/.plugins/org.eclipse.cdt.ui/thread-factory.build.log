@@ -1,0 +1,7 @@
+12:54:09 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+
+12:54:09 Build Finished (took 268ms)
+

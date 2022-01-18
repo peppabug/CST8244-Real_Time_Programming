@@ -1,0 +1,1062 @@
+10:55:09 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread-factory.d,-MT,build/x86_64-debug/src/thread-factory.o -o build/x86_64-debug/src/thread-factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread-factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread-factory.o  
+10:55:30 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread-waker.d,-MT,build/x86_64-debug/src/thread-waker.o -o build/x86_64-debug/src/thread-waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread-waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread-waker.o  
+10:22:48 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:19:16: error: 'SIGUSR' undeclared (first use in this function)
+  if (sigaction(SIGUSR, &act, NULL) == -1) {
+                ^
+src/thread_factory.c:19:16: note: each undeclared identifier is reported only once for each function it appears in
+src/thread_factory.c:28:25: error: 'O_CREAT' undeclared (first use in this function)
+  sem = sem_open("pSem", O_CREAT, S_IWOTH, 0);
+                         ^
+src/thread_factory.c:28:34: error: 'S_IWOTH' undeclared (first use in this function)
+  sem = sem_open("pSem", O_CREAT, S_IWOTH, 0);
+                                  ^
+src/thread_factory.c:33:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c: In function 'handler':
+src/thread_factory.c:53:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:53:53: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+                                                     ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:53:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:54:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:54:47: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+                                               ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:54:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c: In function 'childThread':
+src/thread_factory.c:58:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:58:45: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+                                             ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:58:2: error: too few arguments to function 'write'
+  write("PID = %d: Child thread created.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:63:9: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+         ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:63:48: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+                                                ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:63:3: error: too few arguments to function 'write'
+   write("PID = %d: Child thread unblocked.\n", getpid());
+   ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+10:22:56 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:19:16: error: 'SIGUSR' undeclared (first use in this function)
+  if (sigaction(SIGUSR, &act, NULL) == -1) {
+                ^
+src/thread_factory.c:19:16: note: each undeclared identifier is reported only once for each function it appears in
+src/thread_factory.c:28:25: error: 'O_CREAT' undeclared (first use in this function)
+  sem = sem_open("pSem", O_CREAT, S_IWOTH, 0);
+                         ^
+src/thread_factory.c:28:34: error: 'S_IWOTH' undeclared (first use in this function)
+  sem = sem_open("pSem", O_CREAT, S_IWOTH, 0);
+                                  ^
+src/thread_factory.c:33:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c: In function 'handler':
+src/thread_factory.c:53:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:53:53: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+                                                     ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:53:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:54:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:54:47: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+                                               ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:54:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c: In function 'childThread':
+src/thread_factory.c:58:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:58:45: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+                                             ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:58:2: error: too few arguments to function 'write'
+  write("PID = %d: Child thread created.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:63:9: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+         ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:63:48: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+                                                ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:63:3: error: too few arguments to function 'write'
+   write("PID = %d: Child thread unblocked.\n", getpid());
+   ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+10:27:31 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:36:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c:36:32: note: each undeclared identifier is reported only once for each function it appears in
+src/thread_factory.c: In function 'handler':
+src/thread_factory.c:56:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:53: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+                                                     ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:47: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+                                               ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c: In function 'childThread':
+src/thread_factory.c:61:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:45: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+                                             ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:2: error: too few arguments to function 'write'
+  write("PID = %d: Child thread created.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:9: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+         ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:48: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+                                                ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:3: error: too few arguments to function 'write'
+   write("PID = %d: Child thread unblocked.\n", getpid());
+   ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+10:27:53 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:36:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c:36:32: note: each undeclared identifier is reported only once for each function it appears in
+src/thread_factory.c: In function 'handler':
+src/thread_factory.c:56:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:53: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+                                                     ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:47: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+                                               ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c: In function 'childThread':
+src/thread_factory.c:61:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:45: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+                                             ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:2: error: too few arguments to function 'write'
+  write("PID = %d: Child thread created.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:9: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+         ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:48: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+                                                ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:3: error: too few arguments to function 'write'
+   write("PID = %d: Child thread unblocked.\n", getpid());
+   ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+10:33:37 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:36:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c:36:32: note: each undeclared identifier is reported only once for each function it appears in
+src/thread_factory.c: In function 'handler':
+src/thread_factory.c:56:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:53: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+                                                     ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:47: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+                                               ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c: In function 'childThread':
+src/thread_factory.c:61:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:45: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+                                             ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:2: error: too few arguments to function 'write'
+  write("PID = %d: Child thread created.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:9: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+         ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:48: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+                                                ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:3: error: too few arguments to function 'write'
+   write("PID = %d: Child thread unblocked.\n", getpid());
+   ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+10:35:36 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:36:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c:36:32: note: each undeclared identifier is reported only once for each function it appears in
+src/thread_factory.c: In function 'handler':
+src/thread_factory.c:56:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:53: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+                                                     ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:56:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory received USR1.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:47: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+                                               ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:57:2: error: too few arguments to function 'write'
+  write("PID = %d: Thread-Factory exiting.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c: In function 'childThread':
+src/thread_factory.c:61:8: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+        ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:45: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+  write("PID = %d: Child thread created.\n", getpid());
+                                             ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:61:2: error: too few arguments to function 'write'
+  write("PID = %d: Child thread created.\n", getpid());
+  ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:9: warning: passing argument 1 of 'write' makes integer from pointer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+         ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'int' but argument is of type 'char *'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:48: warning: passing argument 2 of 'write' makes pointer from integer without a cast [-Wint-conversion]
+   write("PID = %d: Child thread unblocked.\n", getpid());
+                                                ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: expected 'const void *' but argument is of type 'pid_t {aka int}'
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+src/thread_factory.c:66:3: error: too few arguments to function 'write'
+   write("PID = %d: Child thread unblocked.\n", getpid());
+   ^
+In file included from src/thread_factory.c:3:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/unistd.h:436:16: note: declared here
+ extern ssize_t write(int __fildes, const void *__buf, size_t __len);
+                ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+10:44:34 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:36:32: error: 'childThread' undeclared (first use in this function)
+   pthread_create(NULL, &attr, &childThread, NULL);
+                                ^
+src/thread_factory.c:36:32: note: each undeclared identifier is reported only once for each function it appears in
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+11:13:14 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:13:14 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:13:26 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:13:26 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:13:38 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:30:17: error: 'SA_RESTART' undeclared (first use in this function)
+  act.sa_flags = SA_RESTART;
+                 ^
+src/thread_factory.c:30:17: note: each undeclared identifier is reported only once for each function it appears in
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+11:14:00 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:14:00 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:14:07 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:26:18 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:26:52 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+11:29:41 **** Incremental Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:31:20 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:31:20 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:31:26 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:31:52 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+11:34:11 **** Incremental Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:34:21 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:34:22 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:34:28 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:34:42 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+11:35:34 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:35:34 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:35:42 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:35:55 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:04:24 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:04:24 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:04:30 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:05:54 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:06:28 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:06:28 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:06:32 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:06:44 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:17:29 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:17:29 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:17:37 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:18:01 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:19:12 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:19:12 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:19:18 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:19:28 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:23:04 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:23:04 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:23:11 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:23:19 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:27:05 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:27:05 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:27:11 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:27:43 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:27:43 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:27:48 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:29:07 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:29:07 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:29:14 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:29:38 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:31:14 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:31:14 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:31:25 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:31:25 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:31:29 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:32:57 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:32:57 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:33:00 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:33:51 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:33:52 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:33:56 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:34:31 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:37:54 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:37:54 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:37:59 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:38:09 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:39:21 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:39:21 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:39:31 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:41:06 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:49:48 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:49:48 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:49:54 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:46:21: error: incompatible type for argument 1 of 'pthread_attr_init'
+   pthread_attr_init(attr);
+                     ^
+In file included from src/thread_factory.c:7:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/pthread.h:159:12: note: expected 'pthread_attr_t * {aka struct _thread_attr *}' but argument is of type 'pthread_attr_t {aka struct _thread_attr}'
+ extern int pthread_attr_init(pthread_attr_t *__attr);
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+            ^
+src/thread_factory.c:48:24: error: incompatible type for argument 1 of 'pthread_attr_destroy'
+   pthread_attr_destroy(attr);
+                        ^
+In file included from src/thread_factory.c:7:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/pthread.h:154:12: note: expected 'pthread_attr_t * {aka struct _thread_attr *}' but argument is of type 'pthread_attr_t {aka struct _thread_attr}'
+ extern int pthread_attr_destroy(pthread_attr_t *__attr);
+            ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+12:50:19 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:50:20 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:50:23 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:51:13 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:51:13 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:51:16 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:46:10 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+11:46:30 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:08:23 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:08:23 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:08:34 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:08:55 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:09:49 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:09:50 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:09:53 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:10:02 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:14:19 **** Incremental Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:22:37 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:22:37 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:22:42 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:22:51 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:23:19 **** Incremental Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:25:27 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:25:28 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:25:33 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+src/thread_factory.c: In function 'main':
+src/thread_factory.c:52:12: error: lvalue required as left operand of assignment
+  &nThreads = 0;
+            ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/thread_factory.o' failed
+make: *** [build/x86_64-debug/src/thread_factory.o] Error 1
+12:26:24 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:26:24 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:26:29 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:26:50 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:26:50 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:26:53 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:33:55 **** Incremental Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:36:14 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:36:14 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:37:07 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:37:20 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:43:15 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:43:15 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:43:24 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:43:38 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  
+12:54:00 **** Clean-only build of configuration x86_64-debug for project thread-factory ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:54:00 **** Clean-only build of configuration x86_64-debug for project thread-waker ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:54:09 **** Build of configuration x86_64-debug for project thread-factory ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_factory.d,-MT,build/x86_64-debug/src/thread_factory.o -o build/x86_64-debug/src/thread_factory.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_factory.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-factory   build/x86_64-debug/src/thread_factory.o  
+12:54:19 **** Build of configuration x86_64-debug for project thread-waker ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/thread_waker.d,-MT,build/x86_64-debug/src/thread_waker.o -o build/x86_64-debug/src/thread_waker.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/thread_waker.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/thread-waker   build/x86_64-debug/src/thread_waker.o  

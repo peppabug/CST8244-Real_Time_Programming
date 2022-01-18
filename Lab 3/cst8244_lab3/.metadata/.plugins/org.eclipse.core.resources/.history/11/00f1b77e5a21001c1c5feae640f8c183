@@ -1,0 +1,59 @@
+/*
+ **
+ **
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+volatile sig_atomic_t usr1Happened = 0;
+
+int main(void) {
+	int returnVal = 2;
+	int numChildren;
+	void usr1_handler(int);
+	sigset_t ss;
+
+	struct sigaction sa = {
+			.sa_flags = 0,
+			.sa_mask = 0,
+			.sa_handler = &usr1_handler,
+	};
+
+	sigemptyset(&ss);
+	sigaddset(&ss, SIGUSR1);
+	sigaction(SIGUSR1, &sa, NULL);
+
+	printf("Enter the number of children: ");
+	scanf(" %d", &numChildren);
+	numChildren = fork();
+
+	switch (numChildren) {
+	case -1:
+		perror("Child(ren) failed, parent exiting."); /* something went wrong */
+		exit(1); /* parent exits */
+	case 0:
+		printf("PID = %d: Child running...\n", getpid());
+		while (1) {
+			if (usr1Happened > 0) {
+				printf("PID = %d: Child received USR1.\n", getpid());
+				break;
+			}
+		}
+		printf("PID = %d: Child exiting.\n", getpid());
+		exit(returnVal);
+	default:
+		printf("PID = %d: Parent running...\n", getppid());
+		wait(&returnVal);
+		printf("PID = %d: Child(ren) finished, parent exiting.", getppid());
+	}
+	return 0;
+}
+
+void usr1_handler(int signo) {
+	usr1Happened++;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;cst8244_lab3/src/sigint&apos; to &apos;sigint.c&apos;" description="Rename resource &apos;sigint&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/sigint" name="sigint.c" stamp="1632584541415" updateReferences="true"/>
+</session>

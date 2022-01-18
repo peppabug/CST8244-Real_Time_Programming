@@ -1,0 +1,25 @@
+17:05:00 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c:91:14: error: conflicting type qualifiers for 'usr1Happened'
+ sig_atomic_t usr1Happened = 0;
+              ^
+src/partA_sighandler.c:18:23: note: previous definition of 'usr1Happened' was here
+ volatile sig_atomic_t usr1Happened = 0;
+                       ^
+src/partA_sighandler.c:97:5: error: redefinition of 'main'
+ int main(void) {
+     ^
+src/partA_sighandler.c:23:5: note: previous definition of 'main' was here
+ int main(void) {
+     ^
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:140:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partA_sighandler.o' failed
+make: *** [build/x86_64-debug/src/partA_sighandler.o] Error 1
+
+17:05:00 Build Finished (took 284ms)
+

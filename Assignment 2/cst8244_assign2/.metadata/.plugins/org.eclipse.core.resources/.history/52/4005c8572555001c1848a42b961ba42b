@@ -1,0 +1,168 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+#include <time.h>
+#include <pthread.h>
+#include <math.h>
+#include <sys/types.h>
+#include <sys/iofunc.h>
+#include <sys/dispatch.h>
+#include <sys/netmgr.h>
+#include <sys/neutrino.h>
+
+#define METRO_PULSE_CODE  _PULSE_CODE_MINAVAIL
+#define PAUSE_PULSE_CODE ( METRO_PULSE_CODE + 1 )
+#define QUIT_PULSE_CODE  ( PAUSE_PULSE_CODE + 1 )
+#define SET_PULSE_CODE   ( QUIT_PULSE_CODE  + 1 )
+#define START_PULSE_CODE ( SET_PULSE_CODE   + 1 )
+#define STOP_PULSE_CODE  ( START_PULSE_CODE + 1 )
+
+name_attach_t *attach;
+int server_coid;
+
+typedef union {
+	struct _pulse pulse;
+	char msg[255];
+} my_message_t;
+
+/* Metronome Table */
+struct DataTableRow t[] = {
+		{ 2,  4,  4,   "|1&2&"         },
+		{ 3,  4,  6,   "|1&2&3&"       },
+		{ 4,  4,  8,   "|1&2&3&4&"     },
+		{ 5,  4,  10,  "|1&2&3&4-5-"   },
+		{ 3,  8,  6,   "|1-2-3-"       },
+		{ 6,  8,  6,   "|1&a2&a"       },
+		{ 9,  8,  9,   "|1&a2&a3&a"    },
+		{ 12, 8,  12,  "|1&a2&a3&a4&a" }
+};
+
+int main(int argc, char *argv[]) {
+	if (argc != 4) {
+		fprintf(stderr, "ERROR: Must provide 4 arguments in order: file beats-per-minute time-signature-top time-signature-bottom\n");
+		perror(NULL);
+		exit(EXIT_FAILURE);
+	}
+
+	return EXIT_SUCCESS;
+}
+
+void *metronome_thread() {
+	struct sigevent sigevent;
+	struct itimerspec itime;
+	my_message_t msg;
+	timer_t timer_id;
+	int rcvid;
+
+	if ((attach = name_attach(NULL, "metronome", 0)) == NULL) {
+		fprintf(stderr, "ERROR: Could not attach connection to './metronome.c'\n");
+		perror(NULL);
+		exit(EXIT_FAILURE);
+	}
+
+	sigevent.sigev_notify = SIGEV_PULSE;
+	sigevent.sigev_coid = ConnectAttach(ND_LOCAL_NODE, 0, attach->chid, _NTO_SIDE_CHANNEL, 0);
+	sigevent.sigev_priority = SchedGet(0, 0, NULL);
+	sigevent.sigev_code = METRO_PULSE_CODE;
+
+	timer_create(CLOCK_REALTIME, &sigevent, &timer_id);
+
+	for (;;) {
+		if ((rcvid = MsgReceive(attach->chid, &msg, sizeof(msg), NULL)) == -1) {
+			fprintf(stderr, "ERROR: Could not receive message from './metronome.c'\n");
+			perror(NULL);
+			exit(EXIT_FAILURE);
+		}
+
+		if (rcvid == 0) {
+			switch (msg.pulse.code) {
+			case METRO_PULSE_CODE:
+				break;
+			case PAUSE_PULSE_CODE:
+				break;
+			case QUIT_PULSE_CODE:
+				break;
+			case SET_PULSE_CODE:
+				break;
+			case START_PULSE_CODE:
+				break;
+			case STOP_PULSE_CODE:
+				break;
+			}
+		}
+	}
+}
+
+int io_read(resmgr_context_t *ctp, io_read_t *msg, METRO_OCB_T *mocb) {
+	int nb;
+
+	if (data == NULL)
+		return 0;
+
+	nb = strlen(data);
+
+	//test to see if we have already sent the whole message.
+	if (ocb->offset == nb)
+		return 0;
+
+	//We will return which ever is smaller the size of our data or the size of the buffer
+	nb = min(nb, msg->i.nbytes);
+
+	//Set the number of bytes we will return
+	_IO_SET_READ_NBYTES(ctp, nb);
+
+	//Copy data into reply buffer.
+	SETIOV(ctp->iov, data, nb);
+
+	//update offset into our data used to determine start position for next read.
+	ocb->offset += nb;
+
+	//If we are going to send any bytes update the access time for this resource.
+	if (nb > 0)
+		ocb->attr->flags |= IOFUNC_ATTR_ATIME;
+
+	return(_RESMGR_NPARTS(1));
+}
+
+int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb) {
+	int nb = 0;
+
+	if (msg->i.nbytes == ctp->info.msglen - (ctp->offset + sizeof(*msg))) {
+		char *buf;
+		char *pause_msg;
+		int i, pause_val;
+		buf = (char *)(msg + 1);
+
+		if (strstr(buf, "pause") != NULL) {
+			for (i = 0; i < 2; i++) {
+				pause_msg = strsep(&buf, " ");
+			}
+
+			pause_val = atoi(pause_msg);
+			if (pause_val >= 1 && pause_val <= 9)
+				MsgSendPulse(server_coid, SchedGet(0, 0, NULL), PAUSE_PULSE_CODE, pause_val);
+			else
+				printf("ERROR: Integer must be between 1 and 9\n");
+		}
+		else if (strstr(buf, "quit") != NULL)
+			MsgSendPulse(server_coid, priority, QUIT_PULSE_CODE, 0);
+		else if (strstr(buf, "set") != NULL)
+			MsgSendPulse(server_coid, priority, SET_PULSE_CODE, pause_val);
+		else if (strstr(buf, "start") != NULL)
+			MsgSendPulse(server_coid, priority, START_PULSE_CODE, pause_val);
+		else if (strstr(buf, "stop") != NULL)
+			MsgSendPulse(server_coid, priority, STOP_PULSE_CODE, pause_val);
+		else
+			strcpy(data, buf);
+		nb = msg->i.nbytes;
+	}
+	_IO_SET_WRITE_NBYTES (ctp, nb);
+
+	if (msg->i.nbytes > 0)
+		ocb->attr->flags |= IOFUNC_ATTR_MTIME | IOFUNC_ATTR_CTIME;
+
+	return (_RESMGR_NPARTS (0));
+}
+

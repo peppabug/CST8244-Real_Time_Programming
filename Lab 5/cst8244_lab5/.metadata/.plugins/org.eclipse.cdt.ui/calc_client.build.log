@@ -1,0 +1,6 @@
+12:53:29 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+
+12:53:30 Build Finished (took 547ms)
+

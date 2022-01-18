@@ -1,0 +1,21 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/iofunc.h>
+#include <sys/dispatch.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <errno.h>
+
+#define MY_PULSE_CODE _PULSE_CODE_MINAVAIL
+
+typedef union {
+	struct _pulse pulse;
+	char msg[255];
+} my_message_t;
+
+int main(void) {
+	my_message_t message;
+	name_attach_t *attach;
+	int const flags = 0;
+}

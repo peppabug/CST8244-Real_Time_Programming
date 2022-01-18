@@ -1,0 +1,14 @@
+17:34:25 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:50:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+src/partB_sigproc.c:34:6: warning: unused variable 'ec' [-Wunused-variable]
+  int ec;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+
+17:34:25 Build Finished (took 336ms)
+

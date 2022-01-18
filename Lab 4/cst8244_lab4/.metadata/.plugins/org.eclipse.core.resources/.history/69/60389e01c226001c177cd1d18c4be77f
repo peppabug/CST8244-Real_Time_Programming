@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <fcntl.h>
+
+volatile sig_atomic_t usr1Happened = 0;
+sem_t *sem;
+
+void handler(int signo);
+void *childThread(void *arg) {
+	printf("Thread ID = %d: Child thread created.\n", pthread_self());
+	while (1) {
+		int sWait = sem_wait(sem);
+		if (sWait != 0)
+			perror("ERROR: sem_wait\n");
+		printf("Thread ID = %d: Child thread unblocked.\n", pthread_self());
+		sleep(5);
+	}
+	return NULL;
+}
+
+int main(void) {
+	struct sigaction act;
+	act.sa_flags = 0;
+	act.sa_handler = handler;
+	sigemptyset(&act.sa_mask);
+
+	if (sigaction(SIGUSR1, &act, NULL) == -1) {
+		perror("ERROR: sigaction\n");
+		exit(1);
+	}
+
+	int nThreads;
+	printf("Enter the number of threads to create: ");
+	scanf(" %d", &nThreads);
+
+	sem = sem_open("pSem", O_CREAT, S_IWOTH, 0);
+
+	pthread_attr_t attr;
+	int i;
+	for (i = 0; i < nThreads; i++) {
+		pthread_attr_init(&attr);
+		pthread_create(NULL, &attr, &childThread, NULL);
+		pthread_attr_destroy(&attr);
+	}
+
+	while (usr1Happened != 1) {
+		//infinite loop
+	}
+
+	int sClose = sem_close(sem);
+	if (sClose == -1)
+		perror("ERROR: sem_close\n");
+	int sUnlink = sem_unlink("pSem");
+	if (sUnlink == -1)
+		perror("ERROR: sem_unlink\n");
+
+	return EXIT_SUCCESS;
+}
+
+void handler(int signo) {
+	usr1Happened = 1;
+	printf("Thread ID = %d: Thread-Factory received USR1.\n", pthread_self());
+	printf("Thread ID = %d: Thread-Factory exiting.\n", pthread_self());
+}

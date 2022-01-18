@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MY_PULSE_CODE _PULSE_CODE_MINAVAIL
+
+typedef union {
+	struct _pulse pulse;
+	char msg[255];
+} my_message_t;
+
+int main(void) {
+	puts("Hello World!!!"); /* prints Hello World!!! */
+	return EXIT_SUCCESS;
+}

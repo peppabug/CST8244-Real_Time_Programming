@@ -1,0 +1,284 @@
+10:47:52 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+10:48:12 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+10:48:34 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+11:29:08 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:29:08 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:29:08 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:29:15 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:38:53: warning: comparison between pointer and integer
+  if ((coid = name_open(NAME_ATTACH_DISPLAY, flags)) == NULL) {
+                                                     ^
+src/des_controller.c:206:7: error: 'cur_state' undeclared (first use in this function)
+   if (cur_state == EXIT_S) {
+       ^
+src/des_controller.c:206:7: note: each undeclared identifier is reported only once for each function it appears in
+src/des_controller.c:27:8: warning: variable 'display_pid' set but not used [-Wunused-but-set-variable]
+  pid_t display_pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+11:29:16 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+11:29:16 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:40:27: error: 'NNAME_ATTACH_CONTROLLER' undeclared (first use in this function)
+     if ((coid = name_open(NNAME_ATTACH_CONTROLLER, flags)) == -1) {
+                           ^
+src/des_inputs.c:40:27: note: each undeclared identifier is reported only once for each function it appears in
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+11:30:13 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:30:14 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:30:14 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:30:17 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:38:53: warning: comparison between pointer and integer
+  if ((coid = name_open(NAME_ATTACH_DISPLAY, flags)) == NULL) {
+                                                     ^
+src/des_controller.c:27:8: warning: variable 'display_pid' set but not used [-Wunused-but-set-variable]
+  pid_t display_pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+11:30:18 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+11:30:18 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:40:27: error: 'NNAME_ATTACH_CONTROLLER' undeclared (first use in this function)
+     if ((coid = name_open(NNAME_ATTACH_CONTROLLER, flags)) == -1) {
+                           ^
+src/des_inputs.c:40:27: note: each undeclared identifier is reported only once for each function it appears in
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+11:30:40 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:30:40 **** Incremental Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:30:40 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+11:31:12 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:31:12 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:31:12 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:31:16 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:38:53: warning: comparison between pointer and integer
+  if ((coid = name_open(NAME_ATTACH_DISPLAY, flags)) == NULL) {
+                                                     ^
+src/des_controller.c:27:8: warning: variable 'display_pid' set but not used [-Wunused-but-set-variable]
+  pid_t display_pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+11:31:16 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+11:31:17 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+11:39:03 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:40:03 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+16:03:49 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:57:08 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:57:56 **** Incremental Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:58:03 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:58:14 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:58:14 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:58:14 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:58:17 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:38:53: warning: comparison between pointer and integer
+  if ((coid = name_open(NAME_ATTACH_DISPLAY, flags)) == NULL) {
+                                                     ^
+src/des_controller.c:27:8: warning: variable 'display_pid' set but not used [-Wunused-but-set-variable]
+  pid_t display_pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+12:58:18 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+12:58:18 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+12:32:28 **** Incremental Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:32:34 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:32:39 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:32:45 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:32:46 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:32:46 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:32:49 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:38:53: warning: comparison between pointer and integer
+  if ((coid = name_open(NAME_ATTACH_DISPLAY, flags)) == NULL) {
+                                                     ^
+src/des_controller.c:27:8: warning: variable 'display_pid' set but not used [-Wunused-but-set-variable]
+  pid_t display_pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+12:32:50 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+12:32:50 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+19:38:29 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:22:23 **** Incremental Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:22:32 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:22:37 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:22:43 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:22:43 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:22:43 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:22:46 **** Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:38:53: warning: comparison between pointer and integer
+  if ((coid = name_open(NAME_ATTACH_DISPLAY, flags)) == NULL) {
+                                                     ^
+src/des_controller.c:27:8: warning: variable 'display_pid' set but not used [-Wunused-but-set-variable]
+  pid_t display_pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+12:22:46 **** Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+12:22:47 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:28:11: warning: variable 'controller_pid' set but not used [-Wunused-but-set-variable]
+     pid_t controller_pid;
+           ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+12:33:13 **** Incremental Build of configuration x86_64-debug for project des_display ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:33:21 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:33:28 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j8 all 
+make: Nothing to be done for 'all'.

@@ -1,0 +1,374 @@
+12:07:14 **** Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+13:23:22 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:32:12: warning: passing argument 1 of 'sigaddset' from incompatible pointer type [-Wincompatible-pointer-types]
+  sigaddset(&sa, SIGUSR1);
+            ^
+In file included from C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/wait.h:39:0,
+                 from C:/Users/Michael/qnx700/target/qnx7/usr/include/stdlib.h:44,
+                 from src/partA_sighandler.c:15:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/signal.h:186:12: note: expected 'sigset_t * {aka struct <anonymous> *}' but argument is of type 'struct sigaction *'
+ extern int sigaddset(sigset_t *__set, int __signo);
+            ^
+src/partA_sighandler.c: In function 'usr1_handler':
+src/partA_sighandler.c:46:6: warning: type of 'signo' defaults to 'int' [-Wimplicit-int]
+ void usr1_handler(signo) {
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+13:25:40 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'usr1_handler':
+src/partA_sighandler.c:45:6: warning: type of 'signo' defaults to 'int' [-Wimplicit-int]
+ void usr1_handler(signo) {
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+10:48:44 **** Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:27:19: warning: variable 'sa' set but not used [-Wunused-but-set-variable]
+  struct sigaction sa;
+                   ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+11:34:09 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:28:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partA_sighandler.c:28:24: note: (near initialization for 'sa')
+src/partA_sighandler.c: In function 'usr1_handler':
+src/partA_sighandler.c:55:8: warning: implicit declaration of function 'gitpid' [-Wimplicit-function-declaration]
+   kill(gitpid(), SIGUSR1);
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+build/x86_64-debug/src/partA_sighandler.o: In function `usr1_handler':
+C:\Users\Michael\cst8244_lab3\partA_sighandler/src/partA_sighandler.c:55: undefined reference to `gitpid'
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/bin/x86_64-pc-nto-qnx7.0.0-ld caught signal 1
+Makefile:60: recipe for target 'build/x86_64-debug/partA_sighandler' failed
+make: *** [build/x86_64-debug/partA_sighandler] Error 1
+11:35:03 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:28:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partA_sighandler.c:28:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+11:35:30 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:28:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partA_sighandler.c:28:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+11:38:33 **** Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+12:15:18 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:28:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partA_sighandler.c:28:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+12:20:30 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:21:35 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:24:06 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+12:42:32 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+13:43:19 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:25:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:25:24: note: (near initialization for 'sa')
+src/partB_sigproc.c:51:8: warning: passing argument 1 of 'exit' makes integer from pointer without a cast [-Wint-conversion]
+   exit(&rv);
+        ^
+In file included from src/partB_sigproc.c:10:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/stdlib.h:115:13: note: expected 'int' but argument is of type 'int *'
+ extern void exit(int __status) __attribute__((__noreturn__));
+             ^
+src/partB_sigproc.c:19:8: warning: unused variable 'pid' [-Wunused-variable]
+  pid_t pid;
+        ^
+src/partB_sigproc.c:36:2: warning: 'numChildren' is used uninitialized in this function [-Wuninitialized]
+  scanf(" %d", numChildren);
+  ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+14:46:48 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+14:51:40 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+15:00:01 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+15:02:53 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+15:04:21 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+15:04:30 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+15:05:36 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+15:08:10 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+15:08:49 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+15:19:38 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:21:24: warning: missing braces around initializer [-Wmissing-braces]
+  struct sigaction sa = {
+                        ^
+src/partB_sigproc.c:21:24: note: (near initialization for 'sa')
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+16:20:17 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:22:15: error: 'ss' undeclared (first use in this function)
+  sigemptyset(&ss.sa_mask);
+               ^
+src/partB_sigproc.c:22:15: note: each undeclared identifier is reported only once for each function it appears in
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partB_sigproc.o' failed
+make: *** [build/x86_64-debug/src/partB_sigproc.o] Error 1
+16:20:46 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+16:23:37 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+16:23:42 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+16:50:51 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c:74:2: error: expected identifier or '(' before 'return'
+  return 0;
+  ^
+src/partB_sigproc.c:75:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partB_sigproc.o' failed
+make: *** [build/x86_64-debug/src/partB_sigproc.o] Error 1
+16:51:04 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:90:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+17:03:37 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c:91:14: error: conflicting type qualifiers for 'usr1Happened'
+ sig_atomic_t usr1Happened = 0;
+              ^
+src/partA_sighandler.c:18:23: note: previous definition of 'usr1Happened' was here
+ volatile sig_atomic_t usr1Happened = 0;
+                       ^
+src/partA_sighandler.c:97:5: error: redefinition of 'main'
+ int main(void) {
+     ^
+src/partA_sighandler.c:23:5: note: previous definition of 'main' was here
+ int main(void) {
+     ^
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:140:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partA_sighandler.o' failed
+make: *** [build/x86_64-debug/src/partA_sighandler.o] Error 1
+17:05:00 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+src/partA_sighandler.c:91:14: error: conflicting type qualifiers for 'usr1Happened'
+ sig_atomic_t usr1Happened = 0;
+              ^
+src/partA_sighandler.c:18:23: note: previous definition of 'usr1Happened' was here
+ volatile sig_atomic_t usr1Happened = 0;
+                       ^
+src/partA_sighandler.c:97:5: error: redefinition of 'main'
+ int main(void) {
+     ^
+src/partA_sighandler.c:23:5: note: previous definition of 'main' was here
+ int main(void) {
+     ^
+src/partA_sighandler.c: In function 'main':
+src/partA_sighandler.c:140:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partA_sighandler.o' failed
+make: *** [build/x86_64-debug/src/partA_sighandler.o] Error 1
+17:06:09 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:49:9: error: 'n' undeclared (first use in this function)
+  while (n > 0) {
+         ^
+src/partB_sigproc.c:49:9: note: each undeclared identifier is reported only once for each function it appears in
+src/partB_sigproc.c:48:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partB_sigproc.o' failed
+make: *** [build/x86_64-debug/src/partB_sigproc.o] Error 1
+17:07:10 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:48:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:13:43 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:49:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:14:15 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:49:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:15:01 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:48:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:17:54 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:50:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:25:37 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:49:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+src/partB_sigproc.c:34:6: warning: unused variable 'ec' [-Wunused-variable]
+  int ec;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:25:46 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+17:27:12 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:34:6: warning: unused variable 'ec' [-Wunused-variable]
+  int ec;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+17:27:32 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+17:27:43 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+17:34:25 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:50:8: warning: variable 'pid' set but not used [-Wunused-but-set-variable]
+  pid_t pid;
+        ^
+src/partB_sigproc.c:34:6: warning: unused variable 'ec' [-Wunused-variable]
+  int ec;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  

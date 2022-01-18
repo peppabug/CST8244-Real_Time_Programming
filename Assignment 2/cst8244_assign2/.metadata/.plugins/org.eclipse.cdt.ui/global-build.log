@@ -1,0 +1,725 @@
+13:04:08 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+14:14:04 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c:31:1: error: unknown type name 'Metronome_t'
+ Metronome_t Metronome;
+ ^
+src/metronome.c: In function 'io_read':
+src/metronome.c:93:37: error: request for member 'm_props' in something not a structure or union
+   if (t[i].time_sig_btm == Metronome.m_props.time_sig_btm && t[i].time_sig_top == Metronome.m_props.time_sig_top)
+                                     ^
+src/metronome.c:93:92: error: request for member 'm_props' in something not a structure or union
+   if (t[i].time_sig_btm == Metronome.m_props.time_sig_btm && t[i].time_sig_top == Metronome.m_props.time_sig_top)
+                                                                                            ^
+src/metronome.c:99:13: error: request for member 'm_props' in something not a structure or union
+    Metronome.m_props.beats_per_min,
+             ^
+src/metronome.c:102:13: error: request for member 't_props' in something not a structure or union
+    Metronome.t_props.interval,
+             ^
+src/metronome.c:103:13: error: request for member 't_props' in something not a structure or union
+    Metronome.t_props.nano_sec);
+             ^
+src/metronome.c: In function 'io_write':
+src/metronome.c:146:26: error: request for member 'm_props' in something not a structure or union
+     if (i == 1) Metronome.m_props.beats_per_min = atoi(set_msg);
+                          ^
+src/metronome.c:147:31: error: request for member 'm_props' in something not a structure or union
+     else if (i == 2) Metronome.m_props.time_sig_top = atoi(set_msg);
+                               ^
+src/metronome.c:148:31: error: request for member 'm_props' in something not a structure or union
+     else if (i == 3) Metronome.m_props.time_sig_btm = atoi(set_msg);
+                               ^
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:194:37: error: request for member 'm_props' in something not a structure or union
+   if (t[i].time_sig_btm == Metronome.m_props.time_sig_btm && t[i].time_sig_top == Metronome.m_props.time_sig_top)
+                                     ^
+src/metronome.c:194:92: error: request for member 'm_props' in something not a structure or union
+   if (t[i].time_sig_btm == Metronome.m_props.time_sig_btm && t[i].time_sig_top == Metronome.m_props.time_sig_top)
+                                                                                            ^
+src/metronome.c:198:11: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.beats_per_sec = (double) 60 / Metronome.m_props.beats_per_min;
+           ^
+src/metronome.c:198:59: error: request for member 'm_props' in something not a structure or union
+  Metronome.t_props.beats_per_sec = (double) 60 / Metronome.m_props.beats_per_min;
+                                                           ^
+src/metronome.c:199:11: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.measure = Metronome.t_props.beats_per_sec * 2;
+           ^
+src/metronome.c:199:39: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.measure = Metronome.t_props.beats_per_sec * 2;
+                                       ^
+src/metronome.c:200:11: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.interval = Metronome.t_props.measure / Metronome.m_props.time_sig_btm;
+           ^
+src/metronome.c:200:40: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.interval = Metronome.t_props.measure / Metronome.m_props.time_sig_btm;
+                                        ^
+src/metronome.c:200:68: error: request for member 'm_props' in something not a structure or union
+  Metronome.t_props.interval = Metronome.t_props.measure / Metronome.m_props.time_sig_btm;
+                                                                    ^
+src/metronome.c:201:11: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.nano_sec = (Metronome.t_props.interval - (int) Metronome.t_props.interval) * 1e+9;
+           ^
+src/metronome.c:201:41: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.nano_sec = (Metronome.t_props.interval - (int) Metronome.t_props.interval) * 1e+9;
+                                         ^
+src/metronome.c:201:76: error: request for member 't_props' in something not a structure or union
+  Metronome.t_props.nano_sec = (Metronome.t_props.interval - (int) Metronome.t_props.interval) * 1e+9;
+                                                                            ^
+src/metronome.c:205:38: error: request for member 't_props' in something not a structure or union
+  itime.it_interval.tv_sec = Metronome.t_props.interval;
+                                      ^
+src/metronome.c:206:39: error: request for member 't_props' in something not a structure or union
+  itime.it_interval.tv_nsec = Metronome.t_props.nano_sec;
+                                       ^
+src/metronome.c:226:9: error: 'timer_status' undeclared (first use in this function)
+     if (timer_status == 0) {
+         ^
+src/metronome.c:226:9: note: each undeclared identifier is reported only once for each function it appears in
+src/metronome.c:237:10: error: 'i' undeclared (first use in this function)
+     for (i = 0; i < 8; i++) {
+          ^
+src/metronome.c:238:40: error: request for member 'm_props' in something not a structure or union
+      if (t[i].time_sig_btm == Metronome.m_props.time_sig_btm && t[i].time_sig_top == Metronome.m_props.time_sig_top)
+                                        ^
+src/metronome.c:238:95: error: request for member 'm_props' in something not a structure or union
+      if (t[i].time_sig_btm == Metronome.m_props.time_sig_btm && t[i].time_sig_top == Metronome.m_props.time_sig_top)
+                                                                                               ^
+src/metronome.c:243:14: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.beats_per_sec = (double) 60 / Metronome.m_props.beats_per_min;
+              ^
+src/metronome.c:243:62: error: request for member 'm_props' in something not a structure or union
+     Metronome.t_props.beats_per_sec = (double) 60 / Metronome.m_props.beats_per_min;
+                                                              ^
+src/metronome.c:244:14: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.measure = Metronome.t_props.beats_per_sec * 2;
+              ^
+src/metronome.c:244:42: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.measure = Metronome.t_props.beats_per_sec * 2;
+                                          ^
+src/metronome.c:245:14: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.interval = Metronome.t_props.measure / Metronome.m_props.time_sig_btm;
+              ^
+src/metronome.c:245:43: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.interval = Metronome.t_props.measure / Metronome.m_props.time_sig_btm;
+                                           ^
+src/metronome.c:245:71: error: request for member 'm_props' in something not a structure or union
+     Metronome.t_props.interval = Metronome.t_props.measure / Metronome.m_props.time_sig_btm;
+                                                                       ^
+src/metronome.c:246:14: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.nano_sec = (Metronome.t_props.interval - (int) Metronome.t_props.interval) * 1e+9;
+              ^
+src/metronome.c:246:44: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.nano_sec = (Metronome.t_props.interval - (int) Metronome.t_props.interval) * 1e+9;
+                                            ^
+src/metronome.c:246:79: error: request for member 't_props' in something not a structure or union
+     Metronome.t_props.nano_sec = (Metronome.t_props.interval - (int) Metronome.t_props.interval) * 1e+9;
+                                                                               ^
+src/metronome.c:250:41: error: request for member 't_props' in something not a structure or union
+     itime.it_interval.tv_sec = Metronome.t_props.interval;
+                                         ^
+src/metronome.c:251:42: error: request for member 't_props' in something not a structure or union
+     itime.it_interval.tv_nsec = Metronome.t_props.nano_sec;
+                                          ^
+src/metronome.c:259:42: error: request for member 't_props' in something not a structure or union
+      itime.it_interval.tv_sec = Metronome.t_props.interval;
+                                          ^
+src/metronome.c:260:43: error: request for member 't_props' in something not a structure or union
+      itime.it_interval.tv_nsec = Metronome.t_props.nano_sec;
+                                           ^
+src/metronome.c: In function 'main':
+src/metronome.c:297:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                     ^
+src/metronome.c:297:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:297:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                           ^
+src/metronome.c:297:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:299:11: error: request for member 'm_props' in something not a structure or union
+  Metronome.m_props.beats_per_min = atoi(argv[1]);
+           ^
+src/metronome.c:300:11: error: request for member 'm_props' in something not a structure or union
+  Metronome.m_props.time_sig_top = atoi(argv[2]);
+           ^
+src/metronome.c:301:11: error: request for member 'm_props' in something not a structure or union
+  Metronome.m_props.time_sig_btm = atoi(argv[3]);
+           ^
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:297:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                 ^
+src/metronome.c:288:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/metronome.o' failed
+make: *** [build/x86_64-debug/src/metronome.o] Error 1
+14:14:32 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:226:9: error: 'timer_status' undeclared (first use in this function)
+     if (timer_status == 0) {
+         ^
+src/metronome.c:226:9: note: each undeclared identifier is reported only once for each function it appears in
+src/metronome.c:237:10: error: 'i' undeclared (first use in this function)
+     for (i = 0; i < 8; i++) {
+          ^
+src/metronome.c: In function 'main':
+src/metronome.c:297:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                     ^
+src/metronome.c:297:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:297:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                           ^
+src/metronome.c:297:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:297:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                 ^
+src/metronome.c:288:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/metronome.o' failed
+make: *** [build/x86_64-debug/src/metronome.o] Error 1
+14:14:44 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:14:50 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:226:9: error: 'timer_status' undeclared (first use in this function)
+     if (timer_status == 0) {
+         ^
+src/metronome.c:226:9: note: each undeclared identifier is reported only once for each function it appears in
+src/metronome.c:237:10: error: 'i' undeclared (first use in this function)
+     for (i = 0; i < 8; i++) {
+          ^
+src/metronome.c: In function 'main':
+src/metronome.c:297:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                     ^
+src/metronome.c:297:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:297:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                           ^
+src/metronome.c:297:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:297:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                 ^
+src/metronome.c:288:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/metronome.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/metronome.o' failed
+14:16:03 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:16:06 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:237:10: error: 'i' undeclared (first use in this function)
+     for (i = 0; i < 8; i++) {
+          ^
+src/metronome.c:237:10: note: each undeclared identifier is reported only once for each function it appears in
+src/metronome.c:256:9: error: 'timer_status' undeclared (first use in this function)
+     if (timer_status == 1) {
+         ^
+src/metronome.c: In function 'main':
+src/metronome.c:297:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                     ^
+src/metronome.c:297:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:297:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                           ^
+src/metronome.c:297:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:297:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                 ^
+src/metronome.c:288:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/metronome.o' failed
+make: *** [build/x86_64-debug/src/metronome.o] Error 1
+14:16:53 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:16:56 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:297:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                     ^
+src/metronome.c:297:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:297:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                           ^
+src/metronome.c:297:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:297:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                 ^
+src/metronome.c:288:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+14:17:28 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+14:29:08 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:29:12 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:294:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                     ^
+src/metronome.c:294:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:294:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                                                           ^
+src/metronome.c:294:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:309:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:294:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb, };
+                 ^
+src/metronome.c:285:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+src/metronome.c:284:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+14:30:01 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:30:04 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:292:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb };
+                                                     ^
+src/metronome.c:292:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:292:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb };
+                                                           ^
+src/metronome.c:292:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:307:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:308:2: error: 'id' undeclared (first use in this function)
+  id = resmgr_attach(dpp, NULL, "/dev/local/metronome", _FTYPE_ANY, 0, &conn_funcs, &io_funcs, &ioattr);
+  ^
+src/metronome.c:308:2: note: each undeclared identifier is reported only once for each function it appears in
+src/metronome.c:292:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb };
+                 ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/metronome.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/metronome.o' failed
+14:30:53 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:30:57 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:293:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb };
+                                                     ^
+src/metronome.c:293:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:293:59: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb };
+                                                           ^
+src/metronome.c:293:59: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:308:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:293:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, mocb, mocb };
+                 ^
+src/metronome.c:284:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+14:45:00 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:45:03 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:293:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:293:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:293:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:293:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:308:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:293:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:284:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+src/metronome.c: In function 'io_write':
+src/metronome.c:138:4: warning: 'small_integer' may be used uninitialized in this function [-Wmaybe-uninitialized]
+    MsgSendPulse(server_coid, SchedGet(0, 0, NULL), QUIT_PULSE_CODE, small_integer);
+    ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+14:58:49 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:58:52 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:293:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:293:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:293:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:293:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:308:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:293:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:284:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+src/metronome.c: In function 'io_write':
+src/metronome.c:138:4: warning: 'small_integer' may be used uninitialized in this function [-Wmaybe-uninitialized]
+    MsgSendPulse(server_coid, SchedGet(0, 0, NULL), QUIT_PULSE_CODE, small_integer);
+    ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+15:20:23 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+15:20:27 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:294:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:294:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:294:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:294:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:309:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'ioattr_t * {aka struct ioattr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:294:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:285:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+15:25:32 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+15:25:36 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:294:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:294:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:294:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:294:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:309:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:294:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:285:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+15:25:38 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+16:03:38 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+16:03:44 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'main':
+src/metronome.c:294:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:294:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:294:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:294:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:309:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:294:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:285:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+16:27:50 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:211:11: warning: return makes pointer from integer without a cast [-Wint-conversion]
+    return EXIT_FAILURE;
+           ^
+src/metronome.c: In function 'main':
+src/metronome.c:297:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:297:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:297:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:297:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:297:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:288:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+17:12:23 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+17:12:38 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:211:11: warning: return makes pointer from integer without a cast [-Wint-conversion]
+    return EXIT_FAILURE;
+           ^
+src/metronome.c: In function 'main':
+src/metronome.c:296:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:296:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:296:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:296:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:311:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t ** {aka struct io_attr_t **}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:312:105: warning: passing argument 8 of 'resmgr_attach' from incompatible pointer type [-Wincompatible-pointer-types]
+  id = resmgr_attach(dispatch_p, NULL, "/dev/local/metronome", _FTYPE_ANY, 0, &connect_funcs, &io_funcs, &ioattr);
+                                                                                                         ^
+In file included from src/metronome.c:7:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/dispatch.h:99:5: note: expected 'struct io_attr_t *' but argument is of type 'io_attr_t ** {aka struct io_attr_t **}'
+ int resmgr_attach(dispatch_t *dpp, resmgr_attr_t *attr, const char *path,
+     ^
+src/metronome.c:296:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+17:12:56 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+17:12:58 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:211:11: warning: return makes pointer from integer without a cast [-Wint-conversion]
+    return EXIT_FAILURE;
+           ^
+src/metronome.c: In function 'main':
+src/metronome.c:296:53: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                     ^
+src/metronome.c:296:53: note: (near initialization for 'metro_ocb_funcs.ocb_calloc')
+src/metronome.c:296:66: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                                                                  ^
+src/metronome.c:296:66: note: (near initialization for 'metro_ocb_funcs.ocb_free')
+src/metronome.c:311:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:296:17: warning: unused variable 'metro_ocb_funcs' [-Wunused-variable]
+  iofunc_funcs_t metro_ocb_funcs = { _IOFUNC_NFUNCS, metro_ocb_p, metro_ocb_p };
+                 ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+17:14:08 **** Clean-only build of configuration x86_64-debug for project metronome ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+17:14:11 **** Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:211:11: warning: return makes pointer from integer without a cast [-Wint-conversion]
+    return EXIT_FAILURE;
+           ^
+src/metronome.c: In function 'main':
+src/metronome.c:311:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:287:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+17:14:30 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+17:25:56 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:211:11: warning: return makes pointer from integer without a cast [-Wint-conversion]
+    return EXIT_FAILURE;
+           ^
+src/metronome.c: In function 'main':
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:288:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  

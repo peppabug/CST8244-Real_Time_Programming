@@ -1,0 +1,104 @@
+13:04:30 **** Build of configuration x86_64-debug for project myController ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+13:04:50 **** Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+14:14:20 **** Clean-only build of configuration x86_64-debug for project myController ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:14:20 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:14:24 **** Build of configuration x86_64-debug for project myController ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'scan_file':
+src/myController.c:17:1: error: parameter name omitted
+ void scan_file(name_attach_t) {
+ ^
+src/myController.c:27:32: error: 'message' undeclared (first use in this function)
+  fscanf(file, "%s %s", status, message.msg);
+                                ^
+src/myController.c:27:32: note: each undeclared identifier is reported only once for each function it appears in
+src/myController.c:35:15: error: 'attach' undeclared (first use in this function)
+   name_detach(attach, flags);
+               ^
+src/myController.c:35:23: error: 'flags' undeclared (first use in this function)
+   name_detach(attach, flags);
+                       ^
+src/myController.c:37:8: error: 'EXIT_SUCCES' undeclared (first use in this function)
+   exit(EXIT_SUCCES);
+        ^
+src/myController.c: In function 'main':
+src/myController.c:53:12: error: incompatible type for argument 1 of 'scan_file'
+  scan_file(attach);
+            ^
+src/myController.c:17:6: note: expected 'name_attach_t {aka struct _name_attach}' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ void scan_file(name_attach_t) {
+      ^
+src/myController.c:60:15: error: incompatible type for argument 1 of 'scan_file'
+     scan_file(attach);
+               ^
+src/myController.c:17:6: note: expected 'name_attach_t {aka struct _name_attach}' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ void scan_file(name_attach_t) {
+      ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/myController.o' failed
+make: *** [build/x86_64-debug/src/myController.o] Error 1
+14:14:25 **** Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+14:17:14 **** Clean-only build of configuration x86_64-debug for project myController ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:17:14 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:17:17 **** Build of configuration x86_64-debug for project myController ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:47:8: error: 'EXIT_SUCCES' undeclared (first use in this function)
+   exit(EXIT_SUCCES);
+        ^
+src/myController.c:47:8: note: each undeclared identifier is reported only once for each function it appears in
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/myController.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/myController.o' failed
+14:17:17 **** Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+14:18:20 **** Clean-only build of configuration x86_64-debug for project myController ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:18:21 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+14:18:24 **** Build of configuration x86_64-debug for project myController ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+14:18:24 **** Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+13:49:57 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+13:50:03 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+13:50:09 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+13:58:20 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+13:58:23 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j8 all 
+make: Nothing to be done for 'all'.

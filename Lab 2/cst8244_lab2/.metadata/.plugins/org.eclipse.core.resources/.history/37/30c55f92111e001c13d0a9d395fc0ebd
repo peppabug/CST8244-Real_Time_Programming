@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <limiys.h>
+
+int main(void) {
+	puts("Hello World from QNX Neutrino RTOS!!!"); /* prints Hello World!!! */
+	puts("@author Michael Turner (turn0245@algonquinlive.com");
+	puts("I get allergic reactions to cold temperatures...");
+	puts("");
+	printf("\n");
+	printf("My PID is %d\n", getpid());
+	printf("My Parent's PID is %d\n", getppid());
+	printf("\n");
+	printf("Press 'Q' to quit: ");
+	getchar();
+	return EXIT_SUCCESS;
+}

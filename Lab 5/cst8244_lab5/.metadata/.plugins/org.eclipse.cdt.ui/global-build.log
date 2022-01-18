@@ -1,0 +1,340 @@
+14:29:07 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+14:29:29 **** Build of configuration x86_64-debug for project calc_client ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+12:50:53 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:11:2: error: unknown type name 'client_sent_t'
+  client_sent_t client_message;
+  ^
+src/calc_server.c:25:9: error: 'true' undeclared (first use in this function)
+  while (true) {
+         ^
+src/calc_server.c:25:9: note: each undeclared identifier is reported only once for each function it appears in
+src/calc_server.c:26:69: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+                                                                     ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:26:11: error: too many arguments to function 'MsgReceive'
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+           ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: declared here
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:32:25: error: request for member 'operator' in something not a structure or union
+   switch (client_message.operator) {
+                         ^
+src/calc_server.c:34:36: error: request for member 'left_hand' in something not a structure or union
+    response.answer = client_message.left_hand + client_message.right_hand;
+                                    ^
+src/calc_server.c:34:63: error: request for member 'right_hand' in something not a structure or union
+    response.answer = client_message.left_hand + client_message.right_hand;
+                                                               ^
+src/calc_server.c:37:36: error: request for member 'left_hand' in something not a structure or union
+    response.answer = client_message.left_hand - client_message.right_hand;
+                                    ^
+src/calc_server.c:37:63: error: request for member 'right_hand' in something not a structure or union
+    response.answer = client_message.left_hand - client_message.right_hand;
+                                                               ^
+src/calc_server.c:40:36: error: request for member 'left_hand' in something not a structure or union
+    response.answer = client_message.left_hand * client_message.right_hand;
+                                    ^
+src/calc_server.c:40:63: error: request for member 'right_hand' in something not a structure or union
+    response.answer = client_message.left_hand * client_message.right_hand;
+                                                               ^
+src/calc_server.c:43:22: error: request for member 'right_hand' in something not a structure or union
+    if (client_message.right_hand == 0) {
+                      ^
+src/calc_server.c:47:37: error: request for member 'left_hand' in something not a structure or union
+     response.answer = client_message.left_hand / client_message.right_hand;
+                                     ^
+src/calc_server.c:47:64: error: request for member 'right_hand' in something not a structure or union
+     response.answer = client_message.left_hand / client_message.right_hand;
+                                                                ^
+src/calc_server.c:13:8: warning: unused variable 'pid' [-Wunused-variable]
+  pid_t pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_server.o' failed
+make: *** [build/x86_64-debug/src/calc_server.o] Error 1
+12:52:08 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:52:08 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:52:16 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:11:2: error: unknown type name 'client_sent_t'
+  client_sent_t client_message;
+  ^
+src/calc_server.c:26:69: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+                                                                     ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:26:11: error: too many arguments to function 'MsgReceive'
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+           ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: declared here
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:32:25: error: request for member 'operator' in something not a structure or union
+   switch (client_message.operator) {
+                         ^
+src/calc_server.c:34:36: error: request for member 'left_hand' in something not a structure or union
+    response.answer = client_message.left_hand + client_message.right_hand;
+                                    ^
+src/calc_server.c:34:63: error: request for member 'right_hand' in something not a structure or union
+    response.answer = client_message.left_hand + client_message.right_hand;
+                                                               ^
+src/calc_server.c:37:36: error: request for member 'left_hand' in something not a structure or union
+    response.answer = client_message.left_hand - client_message.right_hand;
+                                    ^
+src/calc_server.c:37:63: error: request for member 'right_hand' in something not a structure or union
+    response.answer = client_message.left_hand - client_message.right_hand;
+                                                               ^
+src/calc_server.c:40:36: error: request for member 'left_hand' in something not a structure or union
+    response.answer = client_message.left_hand * client_message.right_hand;
+                                    ^
+src/calc_server.c:40:63: error: request for member 'right_hand' in something not a structure or union
+    response.answer = client_message.left_hand * client_message.right_hand;
+                                                               ^
+src/calc_server.c:43:22: error: request for member 'right_hand' in something not a structure or union
+    if (client_message.right_hand == 0) {
+                      ^
+src/calc_server.c:47:37: error: request for member 'left_hand' in something not a structure or union
+     response.answer = client_message.left_hand / client_message.right_hand;
+                                     ^
+src/calc_server.c:47:64: error: request for member 'right_hand' in something not a structure or union
+     response.answer = client_message.left_hand / client_message.right_hand;
+                                                                ^
+src/calc_server.c:13:8: warning: unused variable 'pid' [-Wunused-variable]
+  pid_t pid;
+        ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_server.o' failed
+make: *** [build/x86_64-debug/src/calc_server.o] Error 1
+12:58:33 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:58:33 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:58:41 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:11:2: error: unknown type name 'client_sent_t'
+  client_sent_t client_message;
+  ^
+src/calc_server.c:25:69: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+                                                                     ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:25:11: error: too many arguments to function 'MsgReceive'
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+           ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: declared here
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:31:33: error: request for member 'left_hand' in something not a structure or union
+   int left_temp = client_message.left_hand;
+                                 ^
+src/calc_server.c:32:34: error: request for member 'right_hand' in something not a structure or union
+   int right_temp = client_message.right_hand;
+                                  ^
+src/calc_server.c:33:25: error: request for member 'operator' in something not a structure or union
+   switch (client_message.operator) {
+                         ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_server.o' failed
+make: *** [build/x86_64-debug/src/calc_server.o] Error 1
+13:01:17 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:01:17 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:01:22 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:25:69: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+                                                                     ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:25:11: error: too many arguments to function 'MsgReceive'
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+           ^
+In file included from src/calc_server.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: declared here
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_server.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_server.o' failed
+13:02:51 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:02:51 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:03:03 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+13:09:53 **** Build of configuration x86_64-debug for project calc_client ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:23:14: error: 'arg' undeclared (first use in this function)
+  operation = arg[3];
+              ^
+src/calc_client.c:23:14: note: each undeclared identifier is reported only once for each function it appears in
+src/calc_client.c:40:76: error: 'flags' undeclared (first use in this function)
+  int coid = ConnectAttach(ND_LOCAL_NODE, server_pid, 1, _NTO_SIDE_CHANNEL, flags);
+                                                                            ^
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+13:10:32 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:10:32 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:10:44 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+13:11:06 **** Build of configuration x86_64-debug for project calc_client ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:24:14: error: 'arg' undeclared (first use in this function)
+  operation = arg[3];
+              ^
+src/calc_client.c:24:14: note: each undeclared identifier is reported only once for each function it appears in
+cc: C:/Users/Michael/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+13:13:20 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:13:20 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+13:13:25 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+13:13:44 **** Build of configuration x86_64-debug for project calc_client ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+11:03:23 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:03:24 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:09:31 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+11:09:59 **** Build of configuration x86_64-debug for project calc_client ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+11:28:13 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:28:13 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:28:19 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:14:7: warning: unused variable 'message' [-Wunused-variable]
+  char message[50];
+       ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+11:28:24 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:28:47 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:37:37 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:37:37 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:37:42 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+11:38:24 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:52:23 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:53:09 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:53:09 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:02:03 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+12:03:05 **** Build of configuration x86_64-debug for project calc_client ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+12:25:45 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+13:28:16 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+12:53:29 **** Clean-only build of configuration x86_64-debug for project calc_client ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:53:30 **** Clean-only build of configuration x86_64-debug for project calc_server ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+12:53:37 **** Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+12:58:44 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j8 all 
+make: Nothing to be done for 'all'.

@@ -1,0 +1,55 @@
+/*
+ ** partA_sighandler
+ *
+ * Read:	http://beej.us/guide/bgipc/html/single/bgipc.html#signals
+ * Source:	http://beej.us/guide/bgipc/examples/sigint.c
+ *
+ * Modified by: turn0245@algonquincollege.com
+ *
+ * Usage:
+ *  A small program that is able to catch the interrupt SIGUSR1.
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <signal.h>
+
+volatile sig_atomic_t usr1Happened = 0;
+
+/*******************************************************************************
+ * main( )
+ ******************************************************************************/
+int main(void) {
+	void usr1_handler(int);
+	struct sigaction sa;
+
+
+	sa.sa_flags = 0; // or SA_RESTART
+	sa.sa_handler = &usr1_handler;
+	sigemptyset(&sa);
+
+	sigemptyset(&ss);
+	sigaddset(&ss, SIGUSR1);
+
+	if (sigaction(SIGUSR1, &sa, NULL) == -1) {
+		perror("sigaction");
+		exit(1);
+	}
+
+	sigaction(SIGUSR1, &sa, NULL);
+
+	printf("PID = %d : Running...", getpid());
+	printf("PID = %d : Received USR1.", getpid());
+	printf("PID = %d : Exiting.", getpid());
+
+	kill(getpid(), SIGUSR1);
+
+	return EXIT_SUCCESS;
+}
+
+void usr1_handler(signo) {
+	usr1Happened = 1;
+}

@@ -1,0 +1,178 @@
+/*
+ **
+ **
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+volatile sig_atomic_t usr1Happened = 0;
+volatile sig_atomic_t sigNumber = 0;
+
+int main(void) {
+	void usr1_handler(int);
+
+	struct sigaction sa;
+	sa.sa_flags = 0;
+	sa.sa_handler = &usr1_handler;
+
+	sigemptyset(&ss.sa_mask);
+
+	if (sigaction(SIGINT, &sa, NULL) == -1) {
+		perror("sigaction");
+		exit(1);
+	}
+
+	int numChildren;
+	printf("Enter the number of children: ");
+	scanf(" %d", &numChildren);
+
+	int numForked = numChildren;
+	numForked = fork();
+
+	switch (numForked) {
+	case -1:
+		perror("Child(ren) failed, parent exiting.");
+		exit(1);
+	case 0:
+		printf("PID = %d: Child running...\n", getpid());
+		while (1) {
+			if (usr1Happened == 1) {
+				printf("PID = %d: Child received USR1.\n", getpid());
+				break;
+			}
+		}
+		printf("PID = %d: Child exiting.\n", getpid());
+		exit(returnVal);
+	default:
+		printf("PID = %d: Parent running...\n", getppid());
+		wait(&returnVal);
+		printf("PID = %d: Child(ren) finished, parent exiting.", getppid());
+	}
+	return 0;
+}
+
+void usr1_handler(int signo) {
+	usr1Happened = 1;
+}
+
+
+
+
+
+/*
+ ** fork1.c -- demonstrates usage of fork() and wait()
+ **
+ ** Source:  http://beej.us/guide/bgipc/html/single/bgipc.html#fork
+ **          http://beej.us/guide/bgipc/examples/fork1.c
+ **
+ */
+
+
+
+
+/* Assignment Name: 		Lab_02_PartB
+ * Source-file:				Lab_02_PartB.c
+ * Header-file:				N/A
+ * Date:					23rd September 2018
+ * Author:					Niladri Sengupta (Neal)
+ * Purpose: 				To demonstrate the knowledge and understanding of parent and child process
+ * Software and Tools:		Momentics 7.0 + Neutrino SDP (64-bit)
+ * Language:				QNX - Embedded C
+ * Preamble:				This program runs a multiple child processes through a single parent process.
+ * 							The child processes are terminated by SIGUSR1. Upon the termination of all child process,
+ * 							the parent process exits/terminates along with the program.
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+
+void sigusr1_handler(int sig);
+sig_atomic_t usr1Happened = 0;
+sig_atomic_t signal_num = 0;
+
+/*******************************************************************************
+ * main( )
+ ******************************************************************************/
+int main(void) {
+	struct sigaction usr1;
+	usr1.sa_handler = sigusr1_handler; /* Setting the handler for SIGUSR1 */
+	usr1.sa_flags = 0; /* or SA_RESTART */
+	sigemptyset(&usr1.sa_mask);
+	/* Checking whether sigemptyset returned 0 or -1 */
+	/* sigaction() function allows the calling process to examine
+	 * and/or specify the action to be associated with a specific signal. */
+	if (sigaction(SIGUSR1, &usr1, NULL) == -1) {
+				/* If sigemptyset returned -1 */
+				perror("sigaction-sigusr1");
+				exit(1);
+	}
+	/* Requesting for the number of children processes to fork */
+	int numChildren;
+	printf("Enter the number of children: \n");
+	scanf("%d", &numChildren);
+
+	/* Printing Parent Process */
+	printf("PID = %d: Parent running...\n", getppid());
+	/* Array of type pid_t */
+	pid_t pids[10];
+	int i; /* Counter for For-Loop */
+	int n = numChildren; /* Work-around for scanf's weird repetition of print-errors */
+	int rv; /* Scan rv for the wait/loop for child processes */
+
+	/* Fork children 'n' number of times */
+	for (i = 0; i < n; ++i) {
+		/* Handle error if fork unsuccessful */
+	  if ((pids[i] = fork()) < 0) {
+	    perror("fork");
+	    abort();
+	  }
+	  /* Handle if fork is successful */
+	  else if (pids[i] == 0) {
+		  printf("PID = %d: Child running...\n", getpid());
+		  scanf("%d", &rv); /* Wait in scan */
+		  exit(0); /* Exit with 0 to go to parent process */
+	  }
+	}
+
+	/* Parent process waiting for Children processes to terminate */
+	int status;
+	pid_t pid;
+	while (n > 0) {
+	  pid = wait(&status);
+	  --n;
+	}
+	/* All children process have been terminated.
+	 * Now terminating/exiting Parent and program
+	 */
+	printf("All Children processes are dead...Exiting Parent");
+	exit(-1); /* Exit program with Exit -1 */
+}
+
+/* Function signature:  void sigusr1_handler(int sig);
+ * Author:				Niladri Sengupta
+ * Description:			Handles the signal sent by SIGUSR1.
+ * 						Terminates the process linked with the
+ * 						signal and returns.
+ */
+void sigusr1_handler(int sig) {
+	/* Setting usr1Happened to 1 to show that handler was called */
+	usr1Happened = 1;
+	signal_num = sig; /* Additional information/Testing Purposes */
+	/* Print out that signal has been received for the child process
+	 * and exit - Print PID in each statement*/
+	printf("\nPID = %d: Child received USR1.", getpid());
+	printf("\nPID = %d: Child Exiting.\n", getpid());
+}
+
+

@@ -1,0 +1,63 @@
+/*
+ **
+ **
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+volatile sig_atomic_t usr1Happened = 0;
+volatile sig_atomic_t sigNumber = 0;
+
+int main(void) {
+	void usr1_handler(int);
+
+	struct sigaction sa;
+	sa.sa_flags = 0;
+	sa.sa_handler = &usr1_handler;
+
+	sigemptyset(&ss.sa_mask);
+
+	if (sigaction(SIGINT, &sa, NULL) == -1) {
+		perror("sigaction");
+		exit(1);
+	}
+
+	int numChildren;
+	printf("Enter the number of children: ");
+	scanf(" %d", &numChildren);
+
+	int numForked = numChildren;
+	int returnVal;
+	int i;
+	pid_t pids[10];
+
+	switch (numForked = fork()) {
+	case -1:
+		perror("Child(ren) failed, parent exiting.");
+		exit(1);
+	case 0:
+		printf("PID = %d: Child running...\n", getpid());
+		while (1) {
+			if (usr1Happened == 1) {
+				printf("PID = %d: Child received USR1.\n", getpid());
+				break;
+			}
+		}
+		printf("PID = %d: Child exiting.\n", getpid());
+		exit(returnVal);
+	default:
+		printf("PID = %d: Parent running...\n", getppid());
+		wait(&returnVal);
+		printf("PID = %d: Child(ren) finished, parent exiting.", getppid());
+	}
+	return 0;
+}
+
+void usr1_handler(int signo) {
+	usr1Happened = 1;
+}

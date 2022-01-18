@@ -1,0 +1,31 @@
+10:01:58 **** Build of configuration x86_64-debug for project Lab2 ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/Lab2.d,-MT,build/x86_64-debug/src/Lab2.o -o build/x86_64-debug/src/Lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/Lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/Lab2   build/x86_64-debug/src/Lab2.o  
+10:33:28 **** Build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/cst8244_lab2.d,-MT,build/x86_64-debug/src/cst8244_lab2.o -o build/x86_64-debug/src/cst8244_lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/cst8244_lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/Lab2   build/x86_64-debug/src/cst8244_lab2.o  
+10:35:44 **** Incremental Build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+10:43:22 **** Incremental Build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+10:43:36 **** Incremental Build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:02:54 **** Clean-only build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 clean 
+rm -fr build/x86_64-debug
+11:03:04 **** Build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/cst8244_lab2.d,-MT,build/x86_64-debug/src/cst8244_lab2.o -o build/x86_64-debug/src/cst8244_lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/cst8244_lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/Lab2   build/x86_64-debug/src/cst8244_lab2.o  
+11:03:18 **** Incremental Build of configuration x86_64-debug for project cst8244_lab2 ****
+make -j8 all 
+make: Nothing to be done for 'all'.
+11:40:55 **** Build of configuration x86_64-debug for project cst8244_lab3 ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/cst8244_lab3.d,-MT,build/x86_64-debug/src/cst8244_lab3.o -o build/x86_64-debug/src/cst8244_lab3.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/cst8244_lab3.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/cst8244_lab3   build/x86_64-debug/src/cst8244_lab3.o  

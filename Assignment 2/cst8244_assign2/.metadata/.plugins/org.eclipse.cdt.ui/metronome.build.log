@@ -1,0 +1,22 @@
+17:25:56 **** Incremental Build of configuration x86_64-debug for project metronome ****
+make -j8 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/metronome.d,-MT,build/x86_64-debug/src/metronome.o -o build/x86_64-debug/src/metronome.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/metronome.c
+src/metronome.c: In function 'metronome_thread':
+src/metronome.c:211:11: warning: return makes pointer from integer without a cast [-Wint-conversion]
+    return EXIT_FAILURE;
+           ^
+src/metronome.c: In function 'main':
+src/metronome.c:312:2: warning: passing argument 1 of 'iofunc_attr_init_sized' from incompatible pointer type [-Wincompatible-pointer-types]
+  iofunc_attr_init(&ioattr, S_IFCHR | 0666, NULL, NULL);
+  ^
+In file included from src/metronome.c:6:0:
+C:/Users/Michael/qnx700/target/qnx7/usr/include/sys/iofunc.h:508:13: note: expected 'iofunc_attr_t * {aka struct _iofunc_attr *}' but argument is of type 'io_attr_t * {aka struct io_attr_t *}'
+ extern void iofunc_attr_init_sized(iofunc_attr_t *__attr, mode_t __mode, iofunc_attr_t *__dattr, struct _client_info *__info, size_t __size);
+             ^
+src/metronome.c:288:6: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  int id;
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/metronome   build/x86_64-debug/src/metronome.o  
+
+17:25:56 Build Finished (took 315ms)
+
